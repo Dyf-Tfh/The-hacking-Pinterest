@@ -9,10 +9,12 @@ require 'faker'
 
 10.times do |index|
   User.create(name: Faker::Name.name)
+  # les pins sont reliés aux user
   Pin.create(
     url: Faker::Internet.url('example.com'),
     user_id: index
   )
+  # crée 2 commentaires sur 2 pin choisi aléatoirement
   2.times do
     Comment.create(
       pin_id: index,
